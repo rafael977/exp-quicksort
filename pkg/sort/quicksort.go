@@ -4,7 +4,7 @@ import (
 	"math/rand"
 )
 
-// QuickSort is used to perform basic quicksort
+// QuickSort sorts input array using basic quicksort
 func QuickSort(arr []int) {
 	if len(arr) > 1 {
 		p := partition1(arr)

@@ -20,9 +20,10 @@ func main() {
 
 	start := time.Now()
 	// Quicksort
-	// fmt.Println("Array before sorting", arr)
-	sort.QuickSort(arr)
-	// fmt.Println("Array after sorting", arr)
+	fmt.Println("Array before sorting", arr)
+	//sort.QuickSort(arr)
+	sort.QuickSort2P(arr)
+	fmt.Println("Array after sorting", arr)
 
 	fmt.Printf("Execution time for quicksort %s\n", time.Since(start))
 }
