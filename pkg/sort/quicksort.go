@@ -17,7 +17,7 @@ func partition1(arr []int) int {
 	lo, hi := 0, len(arr)-1
 	p := rand.Intn(hi - lo + 1)
 	pivot := arr[p]
-	arr[p], arr[hi] = arr[hi], arr[p]
+	swap(arr, p, hi)
 
 	i, j := 0, hi-1
 	for i <= j {
@@ -28,10 +28,10 @@ func partition1(arr []int) int {
 			j--
 		}
 		if i < j {
-			arr[i], arr[j] = arr[j], arr[i]
+			swap(arr, i, j)
 		}
 	}
-	arr[i], arr[hi] = arr[hi], arr[i]
+	swap(arr, i, hi)
 
 	return i
 }

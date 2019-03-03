@@ -13,22 +13,22 @@ func QuickSort2P(arr []int) {
 func partition2(arr []int) (int, int) {
 	lo, hi := 0, len(arr)-1
 	if arr[lo] > arr[hi] {
-		arr[lo], arr[hi] = arr[hi], arr[lo]
+		swap(arr, lo, hi)
 	}
 
 	i, j, k, p, q := lo+1, lo+1, hi-1, arr[lo], arr[hi]
 	for j <= k {
 		if arr[j] < p {
-			arr[j], arr[i] = arr[i], arr[j]
+			swap(arr, j, i)
 			i++
 		} else if arr[j] >= q {
 			for arr[k] > q && j < k {
 				k--
 			}
-			arr[j], arr[k] = arr[k], arr[j]
+			swap(arr, j, k)
 			k--
 			if arr[j] < p {
-				arr[j], arr[i] = arr[i], arr[j]
+				swap(arr, j, i)
 				i++
 			}
 		}
@@ -37,8 +37,8 @@ func partition2(arr []int) (int, int) {
 	i--
 	k++
 
-	arr[lo], arr[i] = arr[i], arr[lo]
-	arr[hi], arr[k] = arr[k], arr[hi]
+	swap(arr, lo, i)
+	swap(arr, hi, k)
 
 	return i, k
 }
