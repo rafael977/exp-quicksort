@@ -24,7 +24,7 @@ func partition3(arr []int) (int, int, int) {
 		swap(arr, lo, lo+1)
 	}
 	if arr[lo] > arr[hi] {
-		rotate(arr, lo+1, hi, lo)
+		rotate(arr, hi, lo+1, lo)
 	} else if arr[lo+1] > arr[hi] {
 		swap(arr, lo+1, hi)
 	}
