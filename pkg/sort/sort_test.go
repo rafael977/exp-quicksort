@@ -3,6 +3,7 @@ package sort
 import (
 	"fmt"
 	"math/rand"
+	"sort"
 	"testing"
 )
 
@@ -39,11 +40,30 @@ func TestQuickSort3P(t *testing.T) {
 	fmt.Println("Arr after sorting", arr)
 }
 
+// TestQuickSort5P tests QuickSort5P function
+func TestQuickSort5P(t *testing.T) {
+	arr := rand.Perm(100)
+	fmt.Println("Arr before sorting", arr)
+
+	QuickSort5P(arr)
+	verify(arr, t)
+
+	fmt.Println("Arr after sorting", arr)
+}
+
+// TestQuickSort7P tests QuickSort7P function
+func TestQuickSort7P(t *testing.T) {
+	arr := rand.Perm(100)
+	fmt.Println("Arr before sorting", arr)
+
+	QuickSort7P(arr)
+	verify(arr, t)
+
+	fmt.Println("Arr after sorting", arr)
+}
+
 func verify(arr []int, t *testing.T) {
-	for i := range arr {
-		if i < len(arr)-1 && arr[i]+1 != arr[i+1] {
-			t.Errorf("Not sorted. Index: %d", i)
-			break
-		}
+	if !sort.IsSorted(sort.IntSlice(arr)) {
+		t.Errorf("Not sorted.")
 	}
 }
