@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"os"
 	"strconv"
 	"time"
@@ -16,10 +15,10 @@ func main() {
 		size, _ = strconv.Atoi(os.Args[1])
 	}
 
-	// arr := genPerm(size)
-	arr := genRand(size)
-	// arr := genSeq(size)
-	// arr := genRev(size)
+	// arr := sort.GenPerm(size)
+	arr := sort.GenRand(size)
+	// arr := sort.GenSeq(size)
+	// arr := sort.GenRev(size)
 
 	// Quicksort
 	arr1 := make([]int, len(arr))
@@ -30,45 +29,31 @@ func main() {
 	// fmt.Println("Array after sorting", arr1)
 	fmt.Printf("Execution time for quicksort %s\n", time.Since(start))
 
-	// // 2 pivot Quicksort
+	// 2 pivot Quicksort
 	arr2 := make([]int, len(arr))
 	copy(arr2, arr)
 	start = time.Now()
 	sort.QuickSort2P(arr2)
 	fmt.Printf("Execution time for 2 pivot quicksort %s\n", time.Since(start))
 
-	// // 3 pivot Quicksort
+	// 3 pivot Quicksort
 	arr3 := make([]int, len(arr))
 	copy(arr3, arr)
 	start = time.Now()
 	sort.QuickSort3P(arr3)
 	fmt.Printf("Execution time for 3 pivot quicksort %v\n", time.Since(start))
-}
 
-func genPerm(n int) []int {
-	return rand.Perm(n)
-}
+	// 5 pivot Quicksort
+	arr5 := make([]int, len(arr))
+	copy(arr5, arr)
+	start = time.Now()
+	sort.QuickSort5P(arr5)
+	fmt.Printf("Execution time for 5 pivot quicksort %v\n", time.Since(start))
 
-func genRand(n int) []int {
-	arr := make([]int, n)
-	for i := 0; i < n; i++ {
-		arr[i] = rand.Intn(100)
-	}
-	return arr
-}
-
-func genSeq(n int) []int {
-	arr := make([]int, n)
-	for i := 0; i < n; i++ {
-		arr[i] = i
-	}
-	return arr
-}
-
-func genRev(n int) []int {
-	arr := make([]int, n)
-	for i := 0; i < n; i++ {
-		arr[i] = n - i - 1
-	}
-	return arr
+	// 7 pivot Quicksort
+	arr7 := make([]int, len(arr))
+	copy(arr7, arr)
+	start = time.Now()
+	sort.QuickSort7P(arr7)
+	fmt.Printf("Execution time for 7 pivot quicksort %v\n", time.Since(start))
 }

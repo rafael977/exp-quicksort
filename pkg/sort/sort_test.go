@@ -31,7 +31,7 @@ func TestQuickSort2P(t *testing.T) {
 
 // TestQuickSort3P tests QuickSort3P function
 func TestQuickSort3P(t *testing.T) {
-	arr := rand.Perm(50)
+	arr := GenRand(100)
 	fmt.Println("Arr before sorting", arr)
 
 	QuickSort3P(arr)
@@ -42,18 +42,18 @@ func TestQuickSort3P(t *testing.T) {
 
 // TestQuickSort5P tests QuickSort5P function
 func TestQuickSort5P(t *testing.T) {
-	arr := rand.Perm(100)
-	fmt.Println("Arr before sorting", arr)
+	arr := GenRand(10000)
+	// fmt.Println("Arr before sorting", arr)
 
 	QuickSort5P(arr)
 	verify(arr, t)
 
-	fmt.Println("Arr after sorting", arr)
+	// fmt.Println("Arr after sorting", arr)
 }
 
 // TestQuickSort7P tests QuickSort7P function
 func TestQuickSort7P(t *testing.T) {
-	arr := rand.Perm(100)
+	arr := GenRand(1000)
 	fmt.Println("Arr before sorting", arr)
 
 	QuickSort7P(arr)
