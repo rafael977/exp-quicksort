@@ -15,8 +15,8 @@ func main() {
 		size, _ = strconv.Atoi(os.Args[1])
 	}
 
-	// arr := sort.GenPerm(size)
-	arr := sort.GenRand(size)
+	arr := sort.GenPerm(size)
+	// arr := sort.GenRand(size)
 	// arr := sort.GenSeq(size)
 	// arr := sort.GenRev(size)
 
