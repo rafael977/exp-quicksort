@@ -69,8 +69,7 @@ func partition2V2(arr []int) (int, int) {
 
 		if i == j {
 			i++
-		}
-		if i < j {
+		} else if i < j {
 			if arr[j] > p1 {
 				// rotate a2 and a1 elements
 				swap(arr, i, j)
